@@ -19,7 +19,7 @@ void Job::run()
     double imageHalfHeight = m_jobRequest.areaSize.height()/2.0;
 
     for (int imageX = 0; imageX < m_jobRequest.areaSize.width(); ++imageX) {
-        if (m_abort.loadRelaxed()) {
+        if (m_abort.load()) {
             return;
         }
 
@@ -41,5 +41,5 @@ void Job::run()
 
 void Job::abort()
 {
-    m_abort.storeRelaxed(true);
+    m_abort.store(true);
 }
