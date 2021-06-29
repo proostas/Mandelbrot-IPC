@@ -24,7 +24,7 @@ Worker::Worker(QObject *parent) :
     });
     connect(&m_socket, &QTcpSocket::readyRead, this, &Worker::readMessages);
 
-    m_socket.connectToHost(QHostAddress::LocalHost, 5000);
+    m_socket.connectToHost(QHostAddress("192.168.117.55"), 5000);
 }
 
 Worker::~Worker()
